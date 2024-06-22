@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <title>Raxa-Competição</title>
+</head>
+<style>
+body{margin:0;padding:0;color: #C1CAF4;font-family: sans-serif;word-wrap: break-word;overflow-wrap: break-word;}
+h1,h2,h3,h4,h5,h6{font-weight: 900;color: #ACACB8;}
+.wrapper{width: 100%;margin: 0 auto;}
+main{display: block;background-color: #FFF;}
+.container{width: 100%;max-width: 760px;margin: 0 auto;padding: 0 20px;}
+section.module p{margin-bottom: 40px;}
+section.module:last-child{margin-bottom: 0;}
+section.module h2{margin-bottom: 40px;font-size: 30px;}
+section.module.content{padding: 40px 0;background: #1A1B26;}
+section.module.parallax{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 50vh !important;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+}
+section.module.parallax:after{
+  content: "";
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  z-index: 8;
+  background: -moz-linear-gradient(to bottom, rgba(0,0,0,0) 0, rgba(0,0,0,0) 40%, #000 100% );
+  background: -webkit-linear-gradient(to bottom, rgba(0,0,0,0) 0, rgba(0,0,0,0) 40%, #000 100% );
+  background: linear-gradient(to bottom, rgba(0,0,0,0) 0, rgba(0,0,0,0) 40%, #000 100% );
+}
+section.module.parallax-1{background-image: url({{ url_for('static', filename='./images/main/main.gif') }});}
+section.module.parallax-2{background-image: url({{ url_for('static', filename='./images/main/djs.gif') }});}
+section.module.parallax-3{background-image: url({{ url_for('static', filename='./images/main/rapiar.gif') }});}
+section.module.parallax h1{color: #FFF;text-align: center;font-size: 78px;z-index: 50;text-transform: uppercase;}
+@media all and (max-width: 820px) {
+  section.module h2 {font-size: 32px;}
+  .module h2, p{padding: 0 8px;}
+  .container{margin:0;padding:0;}
+  section.module.parallax h1 {font-size: 36px;}
+}
+
+
+
+.mycolorfont{color:#C1CAF4 !important;}
+.textcenter{text-align:center !important;}
+.mycolorbg{background-color:#1A1B26 !important;}
+.mycolorbg-2{background-color:#414868 !important;}
+
+table{width:100%;}
+th,tr,td{border-collapse: collapse; border:1px solid #C1CAF4}
+
+@media (min-width: 1000px){
+section.module.parallax{height: 100vh !important;}
+.pc-1{width:100%;}
+
+}
+
+/*############################*/
+.whatsapp-fixed {
+    position: fixed;
+    bottom: 40px;
+    right: 62px;
+    z-index: 9;
+}
+
+.btn-whatsapp {
+    background-color: #30bf39;
+    color: #fff;
+    border-radius: 100%;
+    transition: background-color .5s;
+    width: 60px!important;
+    height: 60px!important;
+  line-height: 70px;
+    position: relative!important;
+    display: block;
+    transform: none!important;
+    z-index: 9;
+    text-align: center;
+  box-shadow:
+            0 1px 2px rgba(0,0,0,0.07),
+            0 2px 4px rgba(0,0,0,0.07),
+            0 4px 8px rgba(0,0,0,0.07),
+            0 8px 16px rgba(0,0,0,0.07),
+            0 16px 32px rgba(0,0,0,0.07),
+            0 32px 64px rgba(0,0,0,0.07);
+}
+
+.btn-whatsapp:hover {
+  background-color: #53ca5b;
+}
+
+.whatsapp-fixed a.video-vemo-icon.btn-whatsapp i {
+    font-size: 32px;
+    color: #fff;
+    animation: sm-shake-animation linear 1.5s infinite;
+    animation-delay: 3s;
+}
+
+.rs-video .animate-border .video-vemo-icon:before {
+    content: "";
+    border: 2px solid #fff;
+    position: absolute;
+    z-index: 0;
+    left: 50%;
+    top: 50%;
+  opacity: 0;
+    transform: translateX(-50%) translateY(-50%);
+    display: block;
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    animation: zoomBig 3.25s linear infinite;
+    -webkit-animation-delay: 4s;
+    animation-delay: 4s;
+}
+
+.rs-video .animate-border .video-vemo-icon:after {
+    content: "";
+    border: 2px solid #fff;
+    position: absolute;
+  opacity: 0;
+    z-index: 0;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    display: block;
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    animation: zoomBig 3.25s linear infinite;
+    -webkit-animation-delay: 3s;
+    animation-delay: 3s;
+}
+
+.btn-whatsapp:after, .btn-whatsapp:before {
+    border: 2px solid #30bf39 !important;
+    width: 130px!important;
+    height: 130px!important;
+}
+
+.sm-red-dot {
+    position: absolute;
+    right: 4px;
+    top: 4px;
+  width: 12px; height: 12px;
+  margin: 0 auto;
+    background: red;
+  transform: scale(0);
+    border-radius: 50%;
+  animation-name: notificationPoint;
+animation-duration: 300ms;
+  animation-fill-mode: forwards;
+    animation-delay: 3s;
+}
+
+.quick-message {
+    position: absolute;
+    bottom: 4px;
+    right: 88px;
+    width: max-content;
+    border-radius: 0;
+  background: #393b39;
+}
+
+.line-up {
+  opacity: 0;
+    animation-name: anim-lineUp;
+    animation-duration: 0.75s;
+  animation-fill-mode: forwards;
+    animation-delay: 5s;
+}
+
+.quick-message p {
+  line-height: 40px;
+    font-size: 15px;
+    padding: 4px 16px;
+    height: 40px;
+  position: relative;
+  color: #fff;
+    margin: 0;
+}
+
+.quick-message .seta-direita:before {
+    display: inline-block;
+    content: "";
+    vertical-align: middle;
+    margin-right: 10px;
+    width: 0;
+    height: 0;
+    border-top: 20px solid transparent;
+    border-bottom: 20px solid transparent;
+    border-left: 20px solid #393b39;
+    position: absolute;
+    bottom: 3px;
+    right: -30px;
+}
+
+#hover-message {
+  display: none;
+}
+
+.whatsapp-fixed:hover #hover-message {
+  display: block;
+}
+
+@keyframes zoomBig{
+  0%{transform:translate(-50%,-50%) scale(.5);opacity:1;border-width:3px}
+  40%{opacity:.5;border-width:2px}
+  65%{border-width:1px}100%{transform:translate(-50%,-50%) scale(1);opacity:0;border-width:1px}}
+
+@keyframes sm-shake-animation {
+ 0% {
+  transform:rotate(0) scale(1) skew(0.017rad)
+ }
+ 25% {
+  transform:rotate(0) scale(1) skew(0.017rad)
+ }
+ 35% {
+  transform:rotate(-0.3rad) scale(1) skew(0.017rad)
+ }
+ 45% {
+  transform:rotate(0.3rad) scale(1) skew(0.017rad)
+ }
+ 55% {
+  transform:rotate(-0.3rad) scale(1) skew(0.017rad)
+ }
+ 65% {
+  transform:rotate(0.3rad) scale(1) skew(0.017rad)
+ }
+ 75% {
+  transform:rotate(0) scale(1) skew(0.017rad)
+ }
+ 100% {
+  transform:rotate(0) scale(1) skew(0.017rad)
+ }
+}
+
+@keyframes notificationPoint {
+  from {transform: scale(0)}
+  to {transform: scale(1)}
+}
+
+@keyframes anim-lineUp {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}
+
+
+#playAudio {
+  opacity: 0;
+  pointer-events: none;
+}
+
+
+</style>
+<body>
+
+
+<nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top mycolorfont mycolorbg">
+  <div class="container-fluid">
+    <a class="navbar-brand mycolorfont" href="#">Raxa Competição</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Features</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Pricing</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  <div class="wrapper">
+    <main>
+      <section class="module parallax parallax-1">
+				<img src="./images/main/logo.svg" class="card-img-top" alt="...">
+      </section>
+
+      <section class="module content">
+        <div class="container">
+
+<div class="card mb-3" style="width:100%; background-color:#414868;">
+  <div class="row g-0">
+    <div class="col-md-4 pc-1">
+			<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12446.674062129865!2d-52.25221248326889!3d-27.6290353689568!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94e313c0ac91b3f3%3A0xe15bc89fe2741669!2sR.%20Achiles%20Denti%2C%20120%20-%20Jos%C3%A9%20Bonif%C3%A1cio%2C%20Erechim%20-%20RS%2C%2099701-786!5e0!3m2!1spt-BR!2sbr!4v1719080623032!5m2!1spt-BR!2sbr" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+    <div class="col-md-8 pc-1">
+      <div class="card-body mycolorfont">
+        <h5 class="card-title mycolorbg"style="text-align:center;">Proximos Eventos</h5>
+				<p class="card-text">Caros entusiastas e amantes de velocidade,<br> <br>Estamos empolgados em anunciar nosso próximo evento de rachas, onde a competição e a camaradagem se unem em uma atmosfera amigável e emocionante! Junte-se a nós para uma tarde cheia de adrenalina, onde os motores rugem e os corações aceleram.</p>
+				<img src="./images/main/nextevent.jpg" class="card-img-top" alt="...">
+				<table class="mycolorbg mycolorfont mt-3 mb-3">
+					<tr><th>Local</th><th>Data</th><th>Horario</th></tr>
+					<tr><td>Parque vali albrecht (carazinho-RS)</td><td>21/07/2024</td><td>8h:30m</td>
+					</tr>
+				</table>
+        <p class="card-text mycolorfont"><small class="text-body-secondary mycolorfont">Atualizado em 22/06/2024 .</small></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<div class="card" style="width:100%;background-color:#414868;">
+	<img src="./images/main/rank.gif" class="card-img-top" alt="...">
+  <div class="card-body mycolorfont">
+    <h5 class="card-title mycolorbg" style="text-align:center;">Ranking</h5>
+    <p class="card-text">Queremos parabenizar a todos os competidores pelo desempenho excepcional e pela paixão demonstrada ao longo desta jornada emocionante..</p>
+		<table class="mycolorfont mycolorbg">
+			<tr><th>Nome</th><th>ranking</th><th>Data</th></tr>
+			<tr><td>Lucas</td><td>23</td><td>03/04/2010</td>
+			<tr><td>Daniel</td><td>2</td><td>03/04/2010</td>
+			<tr><td>Vitto</td><td>8</td><td>03/04/2010</td>
+			<tr><td>Luca</td><td>10</td><td>03/04/2010</td>
+			</tr>
+	  </table>
+    <p class="card-text mycolorfont"><small class="text-body-secondary mycolorfont">Atualizado em 22/06/2024 .</small></p>
+  </div>
+</div>
+
+
+
+
+
+
+        </div>
+      </section>
+
+      <section class="module parallax parallax-2">
+        <h1></h1>
+      </section>
+
+      <section class="module content">
+        <div class="container">
+          
+<div class="card" style="width:100%;background-color:#414868;">
+	<img src="./images/main/videologo.gif" class="card-img-top" alt="...">
+  <div class="card-body mycolorfont">
+    <h5 class="card-title mycolorbg" style="text-align:center;">Parceiros</h5>
+		<p class="card-text">Caros parceiros,</br><br>Em nome de toda a equipe organizadora, gostaríamos de expressar nossa sincera gratidão pelo apoio e colaboração que vocês têm proporcionado ao nosso movimento e ao nosso evento. Sem a sua generosidade, dedicação e comprometimento, não seríamos capazes de alcançar nossos objetivos e oferecer uma experiência tão enriquecedora aos nossos participantes.</p>
+
+
+       
+<div class="card" style="width:100%;background-color:#414868;">
+  <div class="card-body mycolorfont">
+    <h5 class="card-title mycolorbg" style="text-align:center;">Todos</h5>
+		<div style="width:100px;display:inline; flex-wrap:wrap; flex-direction:row;">
+			<img src="./images/parceiros/parceiro-1.png" width="100" height="100">
+			<img src="./images/parceiros/parceiro-3.jpeg" width="100" height="100">
+			<img src="./images/parceiros/parceiro-4.png" width="100" height="100">
+			<img src="./images/parceiros/parceiro-6.png" width="100" height="100">
+			<img src="./images/parceiros/parceiro-7.PNG" width="100" height="100">
+			<img src="./images/parceiros/parceiro-9.png" width="100" height="100">
+			<img src="./images/parceiros/parceiro-10.jpeg" width="100" height="100">
+			<img src="./images/parceiros/parceiro-10.png" width="100" height="100">
+		</div>
+  </div>
+</div>
+
+     
+<div class="card" style="width:100%;background-color:#414868;">
+  <div class="card-body mycolorfont">
+    <h5 class="card-title mycolorbg" style="text-align:center;">DJ</h5>
+		<div style="width:100px;display:flex;">
+			<img src="./images/dj/dj-1.png" class="card-img-top" alt="...">
+			<img src="./images/dj/dj-2.jpeg" class="card-img-top" alt="...">
+			<img src="./images/parceiros/parceiro-2.png" width="100" height="100">
+			<img src="./images/parceiros/parceiro-5.png" width="100" height="100">
+		</div>
+  </div>
+</div>
+
+
+
+
+    <p class="card-text mycolorfont"><small class="text-body-secondary mycolorfont">Atualizado em 22/06/2024 .</small></p>
+  </div>
+</div>
+
+         
+        </div>
+      </section>
+<!-- OPEN loja ##############################################################-->
+<section class="module parallax parallax-3">
+  <h1></h1>
+</section>
+<section class="module content">
+	<div class="container">
+		<div class="card" style="width:100%;background-color:#414868;">
+		<img src="./images/main/main.gif" class="card-img-top" alt="...">
+
+			<div class="card-body mycolorfont">
+				<h5 class="card-title mycolorbg" style="text-align:center;">LOJA</h5>
+				<p class="card-text">Bem-vindos à nossa loja!<br><br>É com grande prazer que compartilhamos com vocês o nosso espaço, onde cada visita se transforma em uma experiência única e especial. Aqui, não vendemos apenas produtos; oferecemos um ambiente acolhedor e uma seleção cuidadosamente escolhida para atender às suas necessidades e superar suas expectativas.</p>
+				<div style="width:100%;display:flex; flex-wrap:wrap; flex-direction:row; justify-content: space-evenly;">
+
+				<!-- OPEN PRODUTOS -->
+					<div class="card mt-3 px-2 pt-1 mycolorbg mycolorfont" style="width: 200px;height:180px;">
+						<h6 class="mycolorbg mycolorfont" style="text-align:center;">Bonés Senna</h6>
+						<img src="./images/produtos/produto-1.png" width="100%" height="100px" style="border-radius:10px;">
+						<div class="card-body" style="width:100%;height:20px;">
+							<p class="card-text mycolorbg-2 textcenter">R$50,00</p>
+						</div>
+					</div>
+
+					<div class="card mt-3 px-2 pt-1 mycolorbg mycolorfont" style="width: 200px;height:180px;">
+						<h6 class="mycolorbg mycolorfont" style="text-align:center;">Chaveiro cinta reboque</h6>
+						<img src="./images/produtos/produto-3.png" width="100%" height="100px" style="border-radius:10px;">
+						<div class="card-body" style="width:100%;height:20px;">
+							<p class="card-text mycolorbg-2 textcenter">R$25,00</p>
+						</div>
+					</div>
+
+
+					<div class="card mt-3 px-2 pt-1 mycolorbg mycolorfont" style="width: 200px;height:180px;">
+						<h6 class="mycolorbg mycolorfont" style="text-align:center;">Borrachinha anilha</h6>
+						<img src="./images/produtos/produto-5.png" width="100%" height="100px" style="border-radius:10px;">
+						<div class="card-body" style="width:100%;height:20px;">
+							<p class="card-text mycolorbg-2 textcenter">R$10,00</p>
+						</div>
+					</div>
+
+
+					<div class="card mt-3 px-2 pt-1 mycolorbg mycolorfont" style="width: 200px;height:180px;">
+						<h6 class="mycolorbg mycolorfont" style="text-align:center;">Cintas tow strap</h6>
+						<img src="./images/produtos/produto-6.png" width="100%" height="100px" style="border-radius:10px;">
+						<div class="card-body" style="width:100%;height:20px;">
+							<p class="card-text mycolorbg-2 textcenter">R$65,00</p>
+						</div>
+					</div>
+
+
+					<div class="card mt-3 px-2 pt-1 mycolorbg mycolorfont" style="width: 200px;height:180px;">
+						<h6 class="mycolorbg mycolorfont" style="text-align:center;">Perfumes automotivos</h6>
+						<img src="./images/produtos/produto-7.png" width="100%" height="100px" style="border-radius:10px;">
+						<div class="card-body" style="width:100%;height:20px;">
+							<p class="card-text mycolorbg-2 textcenter">R$15,00</p>
+						</div>
+					</div>
+
+
+					<div class="card mt-3 px-2 pt-1 mycolorbg mycolorfont" style="width: 200px;height:180px;">
+						<h6 class="mycolorbg mycolorfont" style="text-align:center;">Cera vonix carnauba</h6>
+						<img src="./images/produtos/produto-8.png" width="100%" height="100px" style="border-radius:10px;">
+						<div class="card-body" style="width:100%;height:20px;">
+							<p class="card-text mycolorbg-2 textcenter">R$55,00</p>
+						</div>
+					</div>
+
+
+					<div class="card mt-3 px-2 pt-1 mycolorbg mycolorfont" style="width: 200px;height:180px;">
+						<h6 class="mycolorbg mycolorfont" style="text-align:center;">Moletons</h6>
+						<img src="./images/produtos/produto-15.png" width="100%" height="100px" style="border-radius:10px;">
+						<div class="card-body" style="width:100%;height:20px;">
+							<p class="card-text mycolorbg-2 textcenter">R$150,00</p>
+						</div>
+					</div>
+
+
+					<div class="card mt-3 px-2 pt-1 mycolorbg mycolorfont" style="width: 200px;height:180px;">
+						<h6 class="mycolorbg mycolorfont" style="text-align:center;">Filtros automotivos</h6>
+						<img src="./images/produtos/produto-10.png" width="100%" height="100px" style="border-radius:10px;">
+						<div class="card-body" style="width:100%;height:20px;">
+							<p class="card-text mycolorbg-2 textcenter">R$120,00</p>
+						</div>
+					</div>
+
+
+					<div class="card mt-3 px-2 pt-1 mycolorbg mycolorfont" style="width: 200px;height:180px;">
+						<h6 class="mycolorbg mycolorfont" style="text-align:center;">Volante super surf</h6>
+						<img src="./images/produtos/produto-11.png" width="100%" height="100px" style="border-radius:10px;">
+						<div class="card-body" style="width:100%;height:20px;">
+							<p class="card-text mycolorbg-2 textcenter">R$220,00</p>
+						</div>
+					</div>
+
+
+					<div class="card mt-3 px-2 pt-1 mycolorbg mycolorfont" style="width: 200px;height:180px;">
+						<h6 class="mycolorbg mycolorfont" style="text-align:center;">Pedal roller fusca</h6>
+						<img src="./images/produtos/produto-13.png" width="100%" height="100px" style="border-radius:10px;">
+						<div class="card-body" style="width:100%;height:20px;">
+							<p class="card-text mycolorbg-2 textcenter">R$150,00</p>
+						</div>
+					</div>
+
+
+					<div class="card mt-3 px-2 pt-1 mycolorbg mycolorfont" style="width: 200px;height:180px;">
+						<h6 class="mycolorbg mycolorfont" style="text-align:center;">Lâmpadas de led</h6>
+						<img src="./images/produtos/produto-14.png" width="100%" height="100px" style="border-radius:10px;">
+						<div class="card-body" style="width:100%;height:20px;">
+							<p class="card-text mycolorbg-2 textcenter">R$100,00</p>
+						</div>
+					</div>
+
+
+					<div class="card mt-3 px-2 pt-1 mycolorbg mycolorfont" style="width: 200px;height:180px;">
+						<h6 class="mycolorbg mycolorfont" style="text-align:center;">Moletons</h6>
+						<img src="./images/produtos/produto-15.png" width="100%" height="100px" style="border-radius:10px;">
+						<div class="card-body" style="width:100%;height:20px;">
+							<p class="card-text mycolorbg-2 textcenter">R$150,00</p>
+						</div>
+					</div>
+				<!-- OPEN PRODUTOS -->
+				</div>
+				<p class="card-text mycolorfont"><small class="text-body-secondary mycolorfont">Atualizado em 22/06/2024 .</small></p>
+			</div>
+			</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- OPEN loja ##############################################################-->
+    </main>
+  </div>
+
+
+
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+<div class="rs-video whatsapp-fixed">
+    <div class="animate-border">
+        <a alt="Whatsapp" class="video-vemo-icon btn-whatsapp" aria-label="WhatsApp" href="http://api.whatsapp.com/send?1=pt_BR&amp;phone=5521971308336" target="_blank" rel="noopener noreferrer" onclick="gtag_report_conversion(undefined)"><i class="fa fa-whatsapp"></i>
+          <div class="sm-red-dot"></div>
+          <div id="quick-message" class="quick-message line-up mycolorbg-2">
+            <p>
+              Comece o contato por WhatsApp
+            </p>
+            <div class="seta-direita mycolorbg-2 mycolorfont">
+            </div>
+           </div>
+        </a>
+    </div>
+    <div id="hover-message" class="quick-message mycolorfont mycolorbg-2">
+        <p>
+           Comece o contato por WhatsApp
+        </p>
+       <div class="seta-direita mycolorbg-2 mycolorfont">
+       </div>
+    </div>
+</div>
+<script>
+
+
+
+
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
