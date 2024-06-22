@@ -198,10 +198,10 @@ justify-content: center;
 
 
 /* queri midia pc */
-@media screen and (min-width: 1200px) {
+@media screen and (max-width: 1200px) {
   .carousel-item img {
-	  width: 500px;
-	  height: 2000px;
+	  width: 400px;
+	  height: 200px;
   }
   .center{
 	  display: flex;
@@ -209,11 +209,12 @@ justify-content: center;
 	  align-items: center;
   }
 
+section.module.parallax{
+  height: 50vh !important;
 }
 
 
-
-
+}
 
 
 
