@@ -198,13 +198,21 @@ justify-content: center;
 
 
 /* queri midia pc */
-@media screen and (min-width: 2000px) {
+@media screen and (min-width: 1200px) {
   .carousel-item img {
 	  width: 500px;
-	  height: 500px;
-
+	  height: 2000px;
   }
+  .center{
+	  display: flex;
+	  justify-content:center;
+	  align-items: center;
+  }
+
 }
+
+
+
 
 
 
