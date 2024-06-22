@@ -198,7 +198,7 @@ justify-content: center;
 
 
 /* queri midia pc */
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 2000px) {
   .carousel-item img {
 	  width: 500px;
 	  height: 500px;
